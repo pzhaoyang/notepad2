@@ -30,7 +30,12 @@ cacls %windir%\notepad.exe /E /C /G administrators:F
 cacls %windir%\system32\notepad.exe /E /C /G administrators:F
 echo==========================================
 echo.
-echo Copy notepad.exe to %windir%
-copy notepad.exe %windir%\
-copy notepad.exe %windir%\system32
+if /i "%PROCESSOR_IDENTIFIER:~0,3%"=="X86" (
+set notepad=notepad_x86.exe
+) ELSE echo (
+set notepad=notepad_x64.exe
+)
+echo Copy %notepad% to %windir%\
+copy %notepad% %windir%\notepad.exe /Y
+copy %notepad% %windir%\system32\notepad.exe /Y
 pause
