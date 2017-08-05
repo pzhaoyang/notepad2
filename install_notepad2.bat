@@ -26,8 +26,8 @@ takeown /a /f %windir%\system32\notepad.exe
 echo==========================================
 echo.
 echo Change Notepad.exe's perm to administrators:
-cacls %windir%\notepad.exe /T /E /C /G administrators:F
-cacls %windir%\system32\notepad.exe /T /E /C /G administrators:F
+cacls %windir%\notepad.exe /E /C /G administrators:F
+cacls %windir%\system32\notepad.exe /E /C /G administrators:F
 echo==========================================
 echo.
 echo Copy notepad.exe to %windir%
